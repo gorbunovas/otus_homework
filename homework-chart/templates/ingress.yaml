@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+
+kind: Ingress
+metadata:
+  name: {{ include "homework-chart.fullname" . }}
+  labels:
+    {{- include "homework-chart.labels" . | nindent 4 }}
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+    - host: {{ .Values.service.host }}
+      http:
+        paths:
+          - path: {{ .Values.ingress.context_path }}
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "homework-chart.fullname" . }}
+                port:
+                  number: {{ .Values.service.port }}

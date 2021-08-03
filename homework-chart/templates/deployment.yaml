@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "homework-chart.fullname" . }}
+  labels:
+    {{- include "homework-chart.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  strategy:
+    type: {{ .Values.updateType }}
+  selector:
+    matchLabels:
+      {{- include "homework-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "homework-chart.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ .Values.image.repository }}
+          ports:
+            - name: api
+              containerPort: {{ .Values.containerPort }}
+              protocol: TCP
+          readinessProbe:
+            failureThreshold: 5
+            httpGet:
+              path: {{ .Values.readinessProbe.httpGet.path }}
+              port: {{ .Values.readinessProbe.httpGet.port }}
+              scheme: HTTP
+            initialDelaySeconds: 20
+            periodSeconds: 5
+            successThreshold: 1
+            timeoutSeconds: 30
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.livenessProbe.httpGet.path }}
+              port: {{ .Values.livenessProbe.httpGet.port }}
+              scheme: HTTP
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          env:
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secret }}
+                key: DB_PASSWORD
+          - name: DB_USER
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Values.configMapName }}
+                key: DB_USER
+          - name: DB_URI
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Values.configMapName }}
+                key: DB_URI
+          - name: DB_SCHEMA
+            valueFrom:
+              configMapKeyRef:
+                name: {{ .Values.configMapName }}
+                key: DB_SCHEMA

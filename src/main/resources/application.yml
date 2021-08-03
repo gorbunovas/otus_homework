@@ -1,0 +1,22 @@
+server:
+  port: 8000
+spring:
+  datasource:
+ #   driverClassName: org.postgresql.Driver
+ #   url: ${DB_URI}
+  #  username: ${DB_USER}
+  #  password: ${DB_PASSWORD}
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: sa
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect #org.hibernate.dialect.PostgreSQLDialect #
+    properties:
+      hibernate:
+        ddl-auto: update
+        #default_schema: ${DB_SCHEMA}
+        jdbc.lob.non_contextual_creation: true
+        format_sql: true
+        show-sql: false

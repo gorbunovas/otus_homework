@@ -1,0 +1,5 @@
+variables:
+  DB_USER: user
+  DB_PASSWORD: passwd
+  DB_URI: jdbc:postgresql://localhost:5432/user_info?currentSchema=user_info
+  DB_SCHEMA: user_info

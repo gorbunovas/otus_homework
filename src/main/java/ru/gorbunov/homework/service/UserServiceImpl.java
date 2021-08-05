@@ -23,8 +23,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User createUser(UserEntity user) {
-        return mapper.map(userRepo.save(user), User.class);
+    public Long createUser(UserEntity user) {
+        return mapper.map(userRepo.save(user), User.class).getId();
     }
 
     @Override

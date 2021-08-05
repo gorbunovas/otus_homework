@@ -20,7 +20,7 @@ public interface UserApi {
 
     @RequestMapping(value = "/user",
         method = RequestMethod.POST)
-    ResponseEntity<Void> createUser( @Valid @RequestBody User body);
+    ResponseEntity<Long> createUser( @Valid @RequestBody User body);
 
 
     @RequestMapping(value = "/user/{userId}",

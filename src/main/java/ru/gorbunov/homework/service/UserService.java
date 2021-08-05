@@ -9,7 +9,7 @@ import java.util.List;
 public interface UserService {
     List<User> getUsers();
 
-    User createUser(UserEntity user);
+    Long createUser(UserEntity user);
 
     User getUserById(Long id);
 

@@ -27,7 +27,7 @@ public class UserApiController implements UserApi {
     private final UserService userService;
 
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Void> createUser(@Valid @RequestBody User body) {
+    public ResponseEntity<Long> createUser(@Valid @RequestBody User body) {
         return new ResponseEntity(userService.createUser(mapper.map(body, UserEntity.class)), HttpStatus.OK);
     }
 

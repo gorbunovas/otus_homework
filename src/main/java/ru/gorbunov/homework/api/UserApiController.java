@@ -26,6 +26,11 @@ public class UserApiController implements UserApi {
     private final MapperFacade mapper;
     private final UserService userService;
 
+    @ResponseStatus(HttpStatus.OK)
+    public String health() {
+        return "{\"status\":\"OK\"}";
+    }
+
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Long> createUser(@Valid @RequestBody User body) {
         return new ResponseEntity(userService.createUser(mapper.map(body, UserEntity.class)), HttpStatus.OK);

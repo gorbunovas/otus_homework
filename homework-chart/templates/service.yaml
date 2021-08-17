@@ -10,6 +10,6 @@ spec:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetPort }}
       protocol: TCP
-      name: http
+      name: api
   selector:
     {{- include "homework-chart.selectorLabels" . | nindent 4 }}

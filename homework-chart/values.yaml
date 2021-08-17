@@ -5,7 +5,7 @@
 replicaCount: 2
 updateType: RollingUpdate
 image:
-  repository: nolife1349/homework2:v1
+  repository: nolife1349/homework2:v3
 
 containerPort: 8000
 configMapName: app-properties
@@ -13,11 +13,11 @@ secret: app-secret
 readinessProbe:
   httpGet:
     path: /actuator/health
-    port: 80
+    port: 8000
 livenessProbe:
   httpGet:
-    path: /actuator/info
-    port: 80
+    path: /health
+    port: 8000
 
 service:
   type: NodePort
@@ -33,7 +33,7 @@ postgresql:
   postgresqlUsername: user
   postgresqlPassword: passwd
   postgresqlDatabase: user_info
-  postgresqlSchema: user_info
+  postgresqlSchema: public
   service:
     port: "5432"
 

@@ -16,8 +16,8 @@ public class User   {
   @JsonProperty("id")
   private long id;
 
-  @JsonProperty("username")
-  private String username;
+  @JsonProperty("userName")
+  private String userName;
 
   @JsonProperty("firstName")
   private String firstName;

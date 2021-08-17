@@ -5,7 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Data
-@Table(name = "user")
+@Table(name = "users")
 @Entity
 public class UserEntity   {
     @Id
@@ -13,13 +13,13 @@ public class UserEntity   {
     @SequenceGenerator(name = "user_seq", sequenceName = "user_seq", allocationSize = 1)
     private Long id = null;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "user_name")
+    private String userName;
 
-    @Column(name = "firstName")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "lastName")
+    @Column(name = "last_name")
     private String lastName;
 
     @Column(name = "email")
@@ -29,3 +29,4 @@ public class UserEntity   {
     private String phone ;
 
 }
+

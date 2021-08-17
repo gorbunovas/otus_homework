@@ -1,16 +1,15 @@
 package ru.gorbunov.homework.service;
 
 import lombok.AllArgsConstructor;
-import lombok.SneakyThrows;
-import org.springframework.stereotype.Service;
 import ma.glasnost.orika.MapperFacade;
+import org.springframework.stereotype.Service;
 import ru.gorbunov.homework.Exception.NotFoundException;
 import ru.gorbunov.homework.entity.UserEntity;
 import ru.gorbunov.homework.model.User;
 import ru.gorbunov.homework.repository.UserRepository;
 
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
+
 @AllArgsConstructor
 @Service
 public class UserServiceImpl implements UserService {
@@ -33,17 +32,18 @@ public class UserServiceImpl implements UserService {
         return optUser.map(userEntity -> mapper.map(userEntity, User.class)).orElseThrow(() -> new NotFoundException(404, "Not Found"));
     }
 
-    @SneakyThrows
     @Override
     public User updateUser(Long id, UserEntity newUser) {
-        var updateUserEntity = new UserEntity();
-        if (userRepo.findById(id).isPresent())
-        {
-            updateUserEntity = userRepo.save(newUser);
-        }
-        else {
-            throw new NotFoundException(404, "Not Found");
-        }
+        UserEntity updateUserEntity = userRepo.getById(id);
+        updateUserEntity.setEmail(newUser.getEmail());
+        updateUserEntity.setUserName(newUser.getUserName());
+        updateUserEntity.setFirstName(newUser.getFirstName());
+        updateUserEntity.setPhone(newUser.getPhone());
+        updateUserEntity.setLastName(newUser.getLastName());
+        userRepo.save(updateUserEntity);
+//        else {
+//            throw new NotFoundException(404, "Not Found");
+//        }
         return mapper.map(updateUserEntity, User.class);
     }
 

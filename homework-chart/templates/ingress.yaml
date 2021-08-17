@@ -20,3 +20,11 @@ spec:
                 name: {{ include "homework-chart.fullname" . }}
                 port:
                   number: {{ .Values.service.port }}
+#          - path: /(.*)
+#            pathType: Prefix
+#            backend:
+#             service:
+#               name: {{ include "homework-chart.fullname" . }}
+#               port:
+#                 number: 8000
+

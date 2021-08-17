@@ -39,7 +39,7 @@ spec:
               do echo waiting for database; sleep 2; done;
       containers:
         - name: post-install-job
-          env:
+          env: #postgresql://user:passwd@app-postgresql:5432/user_info
             - name: DATABASE_URI
               value: {{ printf "postgresql://%s:%s@%s:%s/%s" .Values.postgresql.postgresqlUsername .Values.postgresql.postgresqlPassword (include "postgresql.fullname" .) .Values.postgresql.service.port .Values.postgresql.postgresqlDatabase  | quote }}
             - name: SERVICE_SCHEME
@@ -50,15 +50,14 @@ spec:
             - "-c"
             - |
               psql $DATABASE_URI <<'EOF'
-                CREATE SCHEMA $(SERVICE_SCHEME) ;
-                create table "$(SERVICE_SCHEME).users" (id bigint primary key,
-                                                   username varchar,
-                                                   firstName varchar,
-                                                   lastName varchar,
-                                                   email varchar,
-                                                   phone varchar);
-                              CREATE SEQUENCE hibernate_sequence START 1;
+                              create table users (id bigint not null constraint users_pkey primary key,
+                                                   user_name varchar(1024),
+                                                   first_name varchar(1024),
+                                                   last_name varchar(1024),
+                                                   email varchar(1024),
+                                                   phone varchar(1024));
+                              CREATE SEQUENCE user_seq START 1;
               EOF
 
-  backoffLimit: 0
+  backoffLimit: 5
 

@@ -4,10 +4,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import ru.gorbunov.homework.model.User;
 
 
@@ -17,6 +14,8 @@ import javax.validation.Valid;
 @Validated
 public interface UserApi {
 
+    @GetMapping(value = "/health")
+    String health();
 
     @RequestMapping(value = "/user",
         method = RequestMethod.POST)

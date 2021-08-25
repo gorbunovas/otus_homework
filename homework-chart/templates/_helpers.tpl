@@ -62,5 +62,9 @@ Create the name of the service account to use
 {{- end }}
 
 {{- define "postgresql.fullname" -}}
-{{- printf "%s-%s" .Release.Name "postgresql" | trunc 63 | trimSuffix "-" -}}
+{{- "pg-db" }}
+{{- end -}}
+
+{{- define "prometheus-postgres-exporter.fullname" -}}
+{{- "pg-exporter" }}
 {{- end -}}

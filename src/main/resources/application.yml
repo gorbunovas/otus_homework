@@ -2,6 +2,32 @@ server:
   port: 8000
 management:
   port: 8000
+  metrics:
+    web:
+      server:
+        request:
+          autotime:
+            percentiles-histogram: true
+    export:
+      prometheus:
+        enabled: true
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+    health:
+      enabled: true
+      show-details: never
+      status:
+        order: FATAL,DOWN,OUT_OF_SERVICE,UNKNOWN,OK,UP
+  endpoints:
+    enabled-by-default: true
+    base-path: /
+    web:
+      exposure:
+        include: '*'
+
 spring:
   datasource:
     driverClassName: org.postgresql.Driver

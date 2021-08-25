@@ -25,8 +25,10 @@ service:
   targetPort: 8000
 
 ingress:
+  enabled: true
   host: '*.arch.homework'
   context_path: /otusapp/gorbunovas($|/)(.*)
+
 
 postgresql:
   enabled: true
@@ -38,59 +40,46 @@ postgresql:
     port: "5432"
 
 
-#---
-#apiVersion: v1
-#kind: Service
-#metadata:
-#  name: postgres
-#  labels:
-#    app: postgres
-#spec:
-#  type: NodePort
-#  ports:
-#    - port: 5432
-#  selector:
-#    app: postgres
-#
-#---
-#apiVersion: apps/v1
-#kind: StatefulSet
-#metadata:
-#  name: postgres-statefulset
-#spec:
-#  serviceName: "postgres"
-#  replicas: 1
-#  selector:
-#    matchLabels:
-#      app: postgres
-#  template:
-#    metadata:
-#      labels:
-#        app: postgres
-#    spec:
-#      containers:
-#        - name: postgres
-#          image: postgres:latest
-#          ports:
-#            - containerPort: 5432
-#              name: postgredb
-#          env:
-#            - name: POSTGRES_DB
-#              value: myapp
-#            - name: POSTGRES_USER
-#              value: myuser
-#            - name: POSTGRES_PASSWORD
-#              value: passwd
-#          volumeMounts:
-#            - name: postgredb
-#              mountPath: /var/lib/postgresql/data
-#              subPath: postgres
-#  volumeClaimTemplates:
-#    - metadata:
-#        name: postgredb
-#      spec:
-#        accessModes: [ "ReadWriteOnce" ]
-#        storageClassName: standard
-#        resources:
-#          requests:
-#            storage: 1Gi
+nginx-ingress:
+  controller:
+    kind: DaemonSet
+    reportNodeInternalIp: true
+    daemonset:
+      useHostPort: true
+      hostPorts:
+        http: 80
+        https: 443
+    service:
+      type: NodePort
+    metrics:
+      enabled: true
+      serviceMonitor:
+        enabled: true
+
+prometheus-operator:
+  grafana:
+    adminPassword: pwd
+#    service:
+#      type: NodePort
+#      nodePort: 30002
+  prometheus:
+#    service:
+#      type: NodePort
+#      nodePort: 30001
+    prometheusSpec:
+      serviceMonitorSelectorNilUsesHelmValues: false
+      serviceMonitorSelector: {}
+      additionalScrapeConfigs:
+        - job_name: pg-exporter
+          scrape_interval: 1m
+          static_configs:
+            - targets: ['pg-exporter:80']
+
+
+prometheus-postgres-exporter:
+  config:
+    datasource:
+      host: pg-db
+      user: user
+      password: passwd
+      database: user_info

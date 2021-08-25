@@ -28,7 +28,8 @@ public class UserApiController implements UserApi {
 
     @ResponseStatus(HttpStatus.OK)
     public String health() {
-        return "{\"status\":\"OK\"}";
+
+        return "{\"OKOK!! status\":\"OK\"}";
     }
 
     @ResponseStatus(HttpStatus.CREATED)

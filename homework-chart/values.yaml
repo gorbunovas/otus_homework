@@ -26,7 +26,7 @@ service:
 
 ingress:
   enabled: true
-  host: '*.arch.homework'
+  host: arch.homework
   context_path: /otusapp/gorbunovas($|/)(.*)
 
 
@@ -59,13 +59,7 @@ nginx-ingress:
 prometheus-operator:
   grafana:
     adminPassword: pwd
-#    service:
-#      type: NodePort
-#      nodePort: 30002
   prometheus:
-#    service:
-#      type: NodePort
-#      nodePort: 30001
     prometheusSpec:
       serviceMonitorSelectorNilUsesHelmValues: false
       serviceMonitorSelector: {}

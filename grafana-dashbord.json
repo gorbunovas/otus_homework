@@ -15,6 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
+  "id": 25,
   "links": [],
   "panels": [
     {
@@ -28,232 +29,7 @@
       },
       "id": 40,
       "panels": [],
-      "title": "Pods metrics CPU/RAM",
-      "type": "row"
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 0,
-        "y": 1
-      },
-      "hiddenSeries": false,
-      "id": 30,
-      "legend": {
-        "alignAsTable": false,
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "rightSide": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum(rate (container_cpu_usage_seconds_total{container=\"homework-chart\"}[1m])) by (pod)",
-          "interval": "",
-          "legendFormat": "'      {{ pod }}     '",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Pods CPU",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:155",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:156",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {},
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 12,
-        "y": 1
-      },
-      "hiddenSeries": false,
-      "id": 32,
-      "legend": {
-        "avg": false,
-        "current": false,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": false,
-        "values": false
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pluginVersion": "7.0.3",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum (container_memory_working_set_bytes{container=\"homework-chart\"}) by (pod)",
-          "format": "time_series",
-          "instant": false,
-          "interval": "",
-          "legendFormat": "      {{ pod }}     ",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Pods RAM",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:2989",
-          "format": "decbytes",
-          "label": "",
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:2990",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "collapsed": false,
-      "datasource": null,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 10
-      },
-      "id": 38,
-      "panels": [],
-      "title": "Network",
+      "title": "App metrics",
       "type": "row"
     },
     {
@@ -263,7 +39,7 @@
           {
             "evaluator": {
               "params": [
-                25
+                2
               ],
               "type": "gt"
             },
@@ -273,7 +49,7 @@
             "query": {
               "params": [
                 "A",
-                "5m",
+                "1m",
                 "now"
               ]
             },
@@ -307,10 +83,10 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 14,
         "w": 12,
         "x": 0,
-        "y": 11
+        "y": 1
       },
       "hiddenSeries": false,
       "id": 20,
@@ -335,7 +111,7 @@
       },
       "percentage": false,
       "pointradius": 2,
-      "points": false,
+      "points": true,
       "renderer": "flot",
       "seriesOverrides": [],
       "spaceLength": 10,
@@ -369,19 +145,17 @@
       ],
       "thresholds": [
         {
-          "$$hashKey": "object:1558",
           "colorMode": "critical",
           "fill": true,
           "line": true,
           "op": "gt",
-          "value": 25,
-          "yaxis": "left"
+          "value": 2
         }
       ],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "App Latency",
+      "title": "App latency",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -397,7 +171,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:989",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -406,7 +179,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:990",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -435,10 +207,10 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 14,
         "w": 12,
         "x": 12,
-        "y": 11
+        "y": 1
       },
       "hiddenSeries": false,
       "id": 18,
@@ -497,7 +269,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:1295",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -506,7 +277,117 @@
           "show": true
         },
         {
-          "$$hashKey": "object:1296",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 7,
+        "x": 0,
+        "y": 15
+      },
+      "hiddenSeries": false,
+      "id": 32,
+      "legend": {
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pluginVersion": "7.0.3",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum (container_memory_working_set_bytes{container=\"homework-chart\"}) by (pod)",
+          "format": "time_series",
+          "instant": false,
+          "interval": "",
+          "legendFormat": "      {{ pod }}     ",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Pods RAM",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "decbytes",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -527,7 +408,7 @@
           {
             "evaluator": {
               "params": [
-                8
+                0.7
               ],
               "type": "gt"
             },
@@ -552,8 +433,147 @@
         "for": "5m",
         "frequency": "1m",
         "handler": 1,
-        "message": "Attention! High response time!",
-        "name": "Nginx Latency alert",
+        "name": "Pods CPU alert",
+        "noDataState": "no_data",
+        "notifications": []
+      },
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 7,
+        "y": 15
+      },
+      "hiddenSeries": false,
+      "id": 30,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "sum(rate (container_cpu_usage_seconds_total{container=\"homework-chart\"}[1m])) by (pod)",
+          "interval": "",
+          "legendFormat": "'      {{ pod }}     '",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [
+        {
+          "colorMode": "critical",
+          "fill": true,
+          "line": true,
+          "op": "gt",
+          "value": 0.7
+        }
+      ],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Pods CPU",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "alert": {
+        "alertRuleTags": {},
+        "conditions": [
+          {
+            "evaluator": {
+              "params": [
+                0.8
+              ],
+              "type": "gt"
+            },
+            "operator": {
+              "type": "and"
+            },
+            "query": {
+              "params": [
+                "A",
+                "5m",
+                "now"
+              ]
+            },
+            "reducer": {
+              "params": [],
+              "type": "avg"
+            },
+            "type": "query"
+          }
+        ],
+        "executionErrorState": "alerting",
+        "for": "5m",
+        "frequency": "1m",
+        "handler": 1,
+        "message": "Attention! ERROR!",
+        "name": "App Error Rate alert",
         "noDataState": "ok",
         "notifications": []
       },
@@ -571,23 +591,21 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
-        "w": 12,
-        "x": 0,
-        "y": 19
+        "h": 9,
+        "w": 9,
+        "x": 15,
+        "y": 15
       },
       "hiddenSeries": false,
-      "id": 26,
+      "id": 22,
       "legend": {
         "alignAsTable": true,
         "avg": true,
         "current": true,
-        "max": false,
+        "max": true,
         "min": false,
         "rightSide": true,
         "show": true,
-        "sort": "current",
-        "sortDesc": true,
         "total": false,
         "values": true
       },
@@ -607,45 +625,25 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "histogram_quantile(0.5, \n  sum by (le, path, method) (rate(nginx_ingress_controller_request_duration_seconds_bucket[1m])) \n)",
+          "expr": "sum(rate(http_server_requests_seconds_count{status=~\"[5].+\"}[1m]))/sum(rate(http_server_requests_seconds_count[1m]))",
           "interval": "",
-          "legendFormat": "0.5:       {{ method }}           {{ path }}     ",
+          "legendFormat": "",
           "refId": "A"
-        },
-        {
-          "expr": "histogram_quantile(0.9, \n  sum by (le, path, method) (rate(nginx_ingress_controller_request_duration_seconds_bucket[1m])) \n)",
-          "interval": "",
-          "legendFormat": "0.9:       {{ method }}             {{ path }}      ",
-          "refId": "B"
-        },
-        {
-          "expr": "histogram_quantile(0.95, \n  sum by (le, path, method) (rate(nginx_ingress_controller_request_duration_seconds_bucket[1m])) \n)",
-          "interval": "",
-          "legendFormat": "0.95:       {{ method }}             {{ path }}      ",
-          "refId": "C"
-        },
-        {
-          "expr": "histogram_quantile(1, \n  sum by (le, path, method) (rate(nginx_ingress_controller_request_duration_seconds_bucket[1m])) \n)",
-          "interval": "",
-          "legendFormat": "Max:       {{ method }}             {{ path }}      ",
-          "refId": "D"
         }
       ],
       "thresholds": [
         {
-          "$$hashKey": "object:1228",
           "colorMode": "critical",
           "fill": true,
           "line": true,
           "op": "gt",
-          "value": 8,
-          "yaxis": "left"
+          "value": 0.8
         }
       ],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Nginx Latency",
+      "title": "App  Error Rate",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -661,7 +659,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:1074",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -670,7 +667,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:1075",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -685,11 +681,25 @@
       }
     },
     {
+      "collapsed": false,
+      "datasource": null,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 38,
+      "panels": [],
+      "title": "Nginx",
+      "type": "row"
+    },
+    {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": null,
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -699,10 +709,10 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 8,
+        "h": 15,
         "w": 12,
-        "x": 12,
-        "y": 19
+        "x": 0,
+        "y": 25
       },
       "hiddenSeries": false,
       "id": 24,
@@ -787,7 +797,7 @@
           {
             "evaluator": {
               "params": [
-                5
+                2
               ],
               "type": "gt"
             },
@@ -797,7 +807,7 @@
             "query": {
               "params": [
                 "A",
-                "5m",
+                "10s",
                 "now"
               ]
             },
@@ -812,8 +822,8 @@
         "for": "5m",
         "frequency": "1m",
         "handler": 1,
-        "message": "Attention! ERROR!",
-        "name": "App Error Rate alert",
+        "message": "Attention! High response time!",
+        "name": "Nginx Latency alert",
         "noDataState": "ok",
         "notifications": []
       },
@@ -831,21 +841,23 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 7,
-        "w": 8,
-        "x": 0,
-        "y": 27
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 25
       },
       "hiddenSeries": false,
-      "id": 22,
+      "id": 26,
       "legend": {
         "alignAsTable": true,
         "avg": true,
         "current": true,
-        "max": true,
+        "max": false,
         "min": false,
         "rightSide": true,
         "show": true,
+        "sort": "current",
+        "sortDesc": true,
         "total": false,
         "values": true
       },
@@ -865,27 +877,43 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(rate(http_server_requests_seconds_count{status=~\"[5].+\"}[1m]))/sum(rate(http_server_requests_seconds_count[1m]))",
+          "expr": "histogram_quantile(0.5, \n  sum by (le, path, method) (rate(nginx_ingress_controller_request_duration_seconds_bucket[1m])) \n)",
           "interval": "",
-          "legendFormat": "",
+          "legendFormat": "0.5:       {{ method }}           {{ path }}     ",
           "refId": "A"
+        },
+        {
+          "expr": "histogram_quantile(0.9, \n  sum by (le, path, method) (rate(nginx_ingress_controller_request_duration_seconds_bucket[1m])) \n)",
+          "interval": "",
+          "legendFormat": "0.9:       {{ method }}             {{ path }}      ",
+          "refId": "B"
+        },
+        {
+          "expr": "histogram_quantile(0.95, \n  sum by (le, path, method) (rate(nginx_ingress_controller_request_duration_seconds_bucket[1m])) \n)",
+          "interval": "",
+          "legendFormat": "0.95:       {{ method }}             {{ path }}      ",
+          "refId": "C"
+        },
+        {
+          "expr": "histogram_quantile(1, \n  sum by (le, path, method) (rate(nginx_ingress_controller_request_duration_seconds_bucket[1m])) \n)",
+          "interval": "",
+          "legendFormat": "Max:       {{ method }}             {{ path }}      ",
+          "refId": "D"
         }
       ],
       "thresholds": [
         {
-          "$$hashKey": "object:1118",
           "colorMode": "critical",
           "fill": true,
           "line": true,
           "op": "gt",
-          "value": 5,
-          "yaxis": "left"
+          "value": 2
         }
       ],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "App Error Rate",
+      "title": "Latency nginx",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -901,7 +929,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:1159",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -910,7 +937,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:1160",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -931,7 +957,7 @@
           {
             "evaluator": {
               "params": [
-                5
+                0.5
               ],
               "type": "gt"
             },
@@ -941,7 +967,7 @@
             "query": {
               "params": [
                 "A",
-                "5m",
+                "10s",
                 "now"
               ]
             },
@@ -976,9 +1002,9 @@
       "fillGradient": 0,
       "gridPos": {
         "h": 7,
-        "w": 8,
-        "x": 8,
-        "y": 27
+        "w": 12,
+        "x": 12,
+        "y": 33
       },
       "hiddenSeries": false,
       "id": 28,
@@ -1017,19 +1043,17 @@
       ],
       "thresholds": [
         {
-          "$$hashKey": "object:1338",
           "colorMode": "critical",
           "fill": true,
           "line": true,
           "op": "gt",
-          "value": 5,
-          "yaxis": "left"
+          "value": 0.5
         }
       ],
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Nginx Error Rate",
+      "title": "Error Rate nginx",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1045,7 +1069,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:1363",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1054,151 +1077,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:1364",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "alert": {
-        "alertRuleTags": {},
-        "conditions": [
-          {
-            "evaluator": {
-              "params": [
-                5
-              ],
-              "type": "gt"
-            },
-            "operator": {
-              "type": "and"
-            },
-            "query": {
-              "params": [
-                "A",
-                "5m",
-                "now"
-              ]
-            },
-            "reducer": {
-              "params": [],
-              "type": "avg"
-            },
-            "type": "query"
-          }
-        ],
-        "executionErrorState": "alerting",
-        "for": "5m",
-        "frequency": "1m",
-        "handler": 1,
-        "message": "Attention! ERROR!",
-        "name": "Nginx Error Rate count alert",
-        "noDataState": "ok",
-        "notifications": []
-      },
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 7,
-        "w": 8,
-        "x": 16,
-        "y": 27
-      },
-      "hiddenSeries": false,
-      "id": 34,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": true,
-        "min": false,
-        "rightSide": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "sum by (status)\r\n(increase(nginx_ingress_controller_request_duration_seconds_count{status=~\"5.+\"}[1m]))",
-          "interval": "",
-          "legendFormat": "",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [
-        {
-          "$$hashKey": "object:1448",
-          "colorMode": "critical",
-          "fill": true,
-          "line": true,
-          "op": "gt",
-          "value": 5,
-          "yaxis": "left"
-        }
-      ],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "Nginx Error Rate count",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:3727",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:3728",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1219,7 +1097,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 34
+        "y": 40
       },
       "id": 36,
       "panels": [],
@@ -1245,7 +1123,7 @@
         "h": 5,
         "w": 6,
         "x": 0,
-        "y": 35
+        "y": 41
       },
       "hiddenSeries": false,
       "id": 2,
@@ -1300,7 +1178,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:3810",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1309,7 +1186,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:3811",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1341,7 +1217,7 @@
         "h": 5,
         "w": 6,
         "x": 6,
-        "y": 35
+        "y": 41
       },
       "hiddenSeries": false,
       "id": 16,
@@ -1433,10 +1309,390 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 12,
+        "y": 41
+      },
+      "hiddenSeries": false,
+      "id": 10,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "pg_stat_database_tup_fetched{datname=\"user_info\"} != 0",
+          "interval": "",
+          "legendFormat": "      {{ datname }}     ",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "DB Select data",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 18,
+        "y": 41
+      },
+      "hiddenSeries": false,
+      "id": 14,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "pg_stat_database_tup_deleted{datname=\"user_info\"} != 0",
+          "interval": "",
+          "legendFormat": "      {{ datname }}    ",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "DB Delete data",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 0,
+        "y": 46
+      },
+      "hiddenSeries": false,
+      "id": 12,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "pg_stat_database_tup_inserted{datname=\"user_info\"} != 0",
+          "interval": "",
+          "legendFormat": "      {{ datname }} `}}}    ",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "DB Insert data",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 6,
+        "w": 6,
+        "x": 6,
+        "y": 46
+      },
+      "hiddenSeries": false,
+      "id": 8,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": true,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
+      "percentage": false,
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "pg_stat_database_tup_updated{datname=\"user_info\"} != 0",
+          "interval": "",
+          "legendFormat": "      {{ datname }}     ",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "DB Update data",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
         "h": 5,
         "w": 6,
         "x": 12,
-        "y": 35
+        "y": 47
       },
       "hiddenSeries": false,
       "id": 4,
@@ -1531,7 +1787,7 @@
         "h": 5,
         "w": 6,
         "x": 18,
-        "y": 35
+        "y": 47
       },
       "hiddenSeries": false,
       "id": 6,
@@ -1588,7 +1844,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:218",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1597,395 +1852,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:219",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 6,
-        "w": 6,
-        "x": 0,
-        "y": 40
-      },
-      "hiddenSeries": false,
-      "id": 12,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": true,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "pg_stat_database_tup_inserted{datname=\"user_info\"} != 0",
-          "interval": "",
-          "legendFormat": "      {{ datname }} `}}}    ",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "DB Insert data",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:3393",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:3394",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 6,
-        "w": 6,
-        "x": 6,
-        "y": 40
-      },
-      "hiddenSeries": false,
-      "id": 8,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": true,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "pg_stat_database_tup_updated{datname=\"user_info\"} != 0",
-          "interval": "",
-          "legendFormat": "      {{ datname }}     ",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "DB Update data",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:296",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:297",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 6,
-        "w": 6,
-        "x": 12,
-        "y": 40
-      },
-      "hiddenSeries": false,
-      "id": 10,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": true,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "pg_stat_database_tup_fetched{datname=\"user_info\"} != 0",
-          "interval": "",
-          "legendFormat": "      {{ datname }}     ",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "DB Select data",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:3557",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:3558",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        }
-      ],
-      "yaxis": {
-        "align": false,
-        "alignLevel": null
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": null,
-      "fieldConfig": {
-        "defaults": {
-          "custom": {}
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 6,
-        "w": 6,
-        "x": 18,
-        "y": 40
-      },
-      "hiddenSeries": false,
-      "id": 14,
-      "legend": {
-        "alignAsTable": true,
-        "avg": true,
-        "current": true,
-        "max": false,
-        "min": false,
-        "show": true,
-        "total": true,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
-      "percentage": false,
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": false,
-      "steppedLine": false,
-      "targets": [
-        {
-          "expr": "pg_stat_database_tup_deleted{datname=\"user_info\"} != 0",
-          "interval": "",
-          "legendFormat": "      {{ datname }}    ",
-          "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeFrom": null,
-      "timeRegions": [],
-      "timeShift": null,
-      "title": "DB Delete data",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "buckets": null,
-        "mode": "time",
-        "name": null,
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:3640",
-          "format": "short",
-          "label": null,
-          "logBase": 1,
-          "max": null,
-          "min": null,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:3641",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -2000,7 +1866,7 @@
       }
     }
   ],
-  "refresh": "5s",
+  "refresh": false,
   "schemaVersion": 25,
   "style": "dark",
   "tags": [],
@@ -2008,8 +1874,8 @@
     "list": []
   },
   "time": {
-    "from": "now-5m",
-    "to": "now"
+    "from": "2021-08-26T19:06:21.000Z",
+    "to": "2021-08-26T19:44:20.349Z"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -2025,7 +1891,7 @@
     ]
   },
   "timezone": "",
-  "title": "APP DASHBOARD",
-  "uid": "Vy1vSFDGz",
-  "version": 1
+  "title": "APP Board",
+  "uid": "Ww2tEEDGe",
+  "version": 12
 }

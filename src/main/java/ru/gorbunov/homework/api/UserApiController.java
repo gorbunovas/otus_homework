@@ -32,6 +32,7 @@ public class UserApiController implements UserApi {
         return "{\"OKOK!! status\":\"OK\"}";
     }
 
+
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Long> createUser(@Valid @RequestBody User body) {
         return new ResponseEntity(userService.createUser(mapper.map(body, UserEntity.class)), HttpStatus.OK);
